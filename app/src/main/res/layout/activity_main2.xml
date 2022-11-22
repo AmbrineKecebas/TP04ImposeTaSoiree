@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Inscription">
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="416dp"
+        android:layout_height="53dp"
+        android:text="Button"
+        tools:layout_editor_absoluteX="-2dp"
+        tools:layout_editor_absoluteY="679dp" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="416dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="78dp"
+        android:text="Button"
+        app:layout_constraintTop_toBottomOf="@+id/button3"
+        tools:layout_editor_absoluteX="1dp" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="416dp"
+        android:layout_height="53dp"
+        android:text="Button"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="495dp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Les soirées à venir"
+        app:layout_constraintBottom_toTopOf="@+id/etLogin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.022" />
+
+    <ListView
+        android:layout_width="409dp"
+        android:layout_height="344dp"
+        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        tools:layout_editor_absoluteX="1dp" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="416dp"
+        android:layout_height="53dp"
+        android:text="Button"
+        tools:layout_editor_absoluteX="-2dp"
+        tools:layout_editor_absoluteY="449dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
