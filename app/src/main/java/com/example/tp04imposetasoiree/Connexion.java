@@ -54,7 +54,7 @@ public class Connexion extends AppCompatActivity {
                 Intent i = new Intent(this, Inscription.class);
                 startActivity(i);
             } else {
-
+                Toast.makeText(this, "Mauvais login ou mdp", Toast.LENGTH_SHORT).show();
             }
         } catch (JSONException e) {
             e.printStackTrace();
