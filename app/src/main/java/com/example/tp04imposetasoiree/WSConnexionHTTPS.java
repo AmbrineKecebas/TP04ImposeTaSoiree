@@ -24,12 +24,12 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 
-public class WSConnexion extends AsyncTask<String, Integer, String> {
+public class WSConnexionHTTPS extends AsyncTask<String, Integer, String> {
     private final String base_url = "https://sio.jbdelasalle.com/~amedassi/suivistages/index.php?" ;
     public static final MediaType JSON = MediaType.get("application/json; charset=utf-8");
     private static OkHttpClient client = null;
 
-    public WSConnexion() {
+    public WSConnexionHTTPS() {
         if (client == null) {
 
             try {
@@ -87,7 +87,7 @@ public class WSConnexion extends AsyncTask<String, Integer, String> {
 
     }
 
-f
+
     @Override
     protected String doInBackground(String... strings) {
         Request request = new Request.Builder()
