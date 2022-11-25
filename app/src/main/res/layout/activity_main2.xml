@@ -4,37 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Inscription">
+    tools:context=".SoireeAVenir">
 
     <Button
-        android:id="@+id/button5"
-        android:layout_width="416dp"
-        android:layout_height="53dp"
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="28dp"
         android:text="Button"
-        tools:layout_editor_absoluteX="-2dp"
-        tools:layout_editor_absoluteY="679dp" />
-
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="416dp"
-        android:layout_height="53dp"
-        android:layout_marginTop="78dp"
-        android:text="Button"
-        app:layout_constraintTop_toBottomOf="@+id/button3"
-        tools:layout_editor_absoluteX="1dp" />
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="416dp"
-        android:layout_height="53dp"
-        android:text="Button"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="495dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="556dp" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
         android:text="Les soirées à venir"
         app:layout_constraintBottom_toTopOf="@+id/etLogin"
         app:layout_constraintEnd_toEndOf="parent"
@@ -45,17 +30,18 @@
     <ListView
         android:layout_width="409dp"
         android:layout_height="344dp"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
-        app:layout_constraintVertical_bias="0.462"
+        app:layout_constraintVertical_bias="0.269"
         tools:layout_editor_absoluteX="1dp" />
 
     <Button
-        android:id="@+id/button2"
-        android:layout_width="416dp"
-        android:layout_height="53dp"
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
         android:text="Button"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="449dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/button2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

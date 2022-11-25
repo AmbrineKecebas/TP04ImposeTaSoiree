@@ -23,10 +23,10 @@
             android:name=".MainActivity4"
             android:exported="false" />
         <activity
-            android:name=".MainActivity3"
+            android:name=".Inscription"
             android:exported="false" />
         <activity
-            android:name=".Inscription"
+            android:name=".SoireeAVenir"
             android:exported="false" />
         <activity
             android:name=".Connexion"
