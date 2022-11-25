@@ -6,16 +6,21 @@ public class Soiree {
     private String date;
     private String heure;
     private String adresse;
+    private Double lat;
+    private Double lng;
+
 
     public Soiree() {
     }
 
-    public Soiree(String libelle, String descriptif, String date, String heure, String adresse) {
+    public Soiree(String libelle, String descriptif, String date, String heure, String adresse, Double lat, Double lng) {
         this.libelle = libelle;
         this.descriptif = descriptif;
         this.date = date;
         this.heure = heure;
         this.adresse = adresse;
+        this.lat = lat;
+        this.lng = lng;
     }
 
     public String getLibelle() {
@@ -58,4 +63,24 @@ public class Soiree {
         this.adresse = adresse;
     }
 
+    public Double getLat() {
+        return lat;
+    }
+
+    public void setLat(Double lat) {
+        this.lat = lat;
+    }
+
+    public Double getLng() {
+        return lng;
+    }
+
+    public void setLng(Double lng) {
+        this.lng = lng;
+    }
+
+    @Override
+    public String toString() {
+        return libelle + " " + "(" + date + ")";
+    }
 }

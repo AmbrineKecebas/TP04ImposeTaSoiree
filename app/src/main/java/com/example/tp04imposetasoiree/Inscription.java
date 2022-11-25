@@ -14,6 +14,7 @@ import org.json.JSONObject;
 
 public class Inscription extends AppCompatActivity {
     private Button buttonValider;
+    private Button buttonAnnuler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +30,11 @@ public class Inscription extends AppCompatActivity {
             String mail = ((EditText) (findViewById(R.id.etMail))).getText().toString();
             createAndExecuteInscriptionMembres(login, mdp, nom, prenom, ddn, mail);
         });
-
+        buttonAnnuler = (Button) findViewById(R.id.buttonAnnuler);
+        buttonAnnuler.setOnClickListener(view -> {
+            Intent i = new Intent(this, Connexion.class);
+            startActivity(i);
+        });
 
     }
 
