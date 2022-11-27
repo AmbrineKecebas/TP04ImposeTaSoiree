@@ -7,6 +7,8 @@ import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -40,27 +42,19 @@ public class SoireeAVenir extends AppCompatActivity {
         ws.execute("requete=getLesSoirees");
     }
 
-    private void traiterRetourGetSoirees(String s) {
-        Log.d("TRAITER-RETOUR-GETSOIREES", s);
-        List<Soiree> soireeList = new ArrayList<>();
+    private void traiterRetourGetSoirees(String retour) {
+        Log.d("TRAITER-RETOUR-GETSOIREES", retour);
+
         try {
-            JSONArray jsona = new JSONArray(s);
-            for (int i = 0; i < jsona.length(); i++) {
-                JSONObject jsono = jsona.getJSONObject(i);
-                String libelle = jsono.getString("libelle");
-                String descriptif = jsono.getString("descriptif");
-                String date = jsono.getString("date");
-                String heure = jsono.getString("heure");
-                String adresse = jsono.getString("adresse");
-                Double lat = jsono.getDouble("lat");
-                Double lng = jsono.getDouble("lng");
-                Soiree soir = new Soiree(libelle, descriptif, date, heure, adresse, lat, lng);
-                soireeList.add(soir);
-            }
+           ObjectMapper objetMapper =  new ObjectMapper();
+           RetourGetSoiree soirees = objetMapper.readValue(retour, RetourGetSoiree.class);
+
+           List<Soiree> soireeList = soirees.getResponse() ;
+
             ((ListView) findViewById(R.id.lvSoirees)).setAdapter(new ArrayAdapter<>(this,
                     android.R.layout.simple_list_item_1, soireeList));
-        } catch (JSONException jsonException) {
-            jsonException.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

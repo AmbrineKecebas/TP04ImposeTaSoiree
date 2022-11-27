@@ -1,34 +1,33 @@
 package com.example.tp04imposetasoiree;
 
 public class Soiree {
-    private String libelle;
+    private String id ;
+    private String libelleCourt;
     private String descriptif;
-    private String date;
-    private String heure;
+    private String dateDebut;
+    private String heureDebut;
     private String adresse;
-    private Double lat;
-    private Double lng;
-
+    private Double latitude;
+    private Double longitude;
+    private String login ;
 
     public Soiree() {
     }
 
-    public Soiree(String libelle, String descriptif, String date, String heure, String adresse, Double lat, Double lng) {
-        this.libelle = libelle;
-        this.descriptif = descriptif;
-        this.date = date;
-        this.heure = heure;
-        this.adresse = adresse;
-        this.lat = lat;
-        this.lng = lng;
+    public String getId() {
+        return id;
     }
 
-    public String getLibelle() {
-        return libelle;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public void setLibelle(String libelle) {
-        this.libelle = libelle;
+    public String getLibelleCourt() {
+        return libelleCourt;
+    }
+
+    public void setLibelleCourt(String libelleCourt) {
+        this.libelleCourt = libelleCourt;
     }
 
     public String getDescriptif() {
@@ -39,20 +38,20 @@ public class Soiree {
         this.descriptif = descriptif;
     }
 
-    public String getDate() {
-        return date;
+    public String getDateDebut() {
+        return dateDebut;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setDateDebut(String dateDebut) {
+        this.dateDebut = dateDebut;
     }
 
-    public String getHeure() {
-        return heure;
+    public String getHeureDebut() {
+        return heureDebut;
     }
 
-    public void setHeure(String heure) {
-        this.heure = heure;
+    public void setHeureDebut(String heureDebut) {
+        this.heureDebut = heureDebut;
     }
 
     public String getAdresse() {
@@ -63,24 +62,32 @@ public class Soiree {
         this.adresse = adresse;
     }
 
-    public Double getLat() {
-        return lat;
+    public Double getLatitude() {
+        return latitude;
     }
 
-    public void setLat(Double lat) {
-        this.lat = lat;
+    public void setLatitude(Double latitude) {
+        this.latitude = latitude;
     }
 
-    public Double getLng() {
-        return lng;
+    public Double getLongitude() {
+        return longitude;
     }
 
-    public void setLng(Double lng) {
-        this.lng = lng;
+    public void setLongitude(Double longitude) {
+        this.longitude = longitude;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
     }
 
     @Override
     public String toString() {
-        return libelle + " " + "(" + date + ")";
+        return libelleCourt + " "+ "("+ dateDebut + ")" ;
     }
 }
