@@ -2,9 +2,11 @@ package com.example.tp04imposetasoiree;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -17,15 +19,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SoireeAVenir extends AppCompatActivity {
-
+private Button buttonAddSoiree ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+
+
         createAndLaunchASWSGetSoirees();
         ((ListView) findViewById(R.id.lvSoirees)).setOnItemLongClickListener((adapterView, view, i, l) -> {
             Soiree soireeSel = (Soiree) adapterView.getItemAtPosition(i);
             return true;
+        });
+        buttonAddSoiree = (Button) findViewById(R.id.buttonAddSoiree);
+        buttonAddSoiree.setOnClickListener(view -> {
+            Intent i = new Intent(this, AjouterSoiree.class);
+            startActivity(i);
         });
     }
 
@@ -57,6 +66,7 @@ public class SoireeAVenir extends AppCompatActivity {
             e.printStackTrace();
         }
     }
+
 }
 
 

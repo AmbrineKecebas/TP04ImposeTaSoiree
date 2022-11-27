@@ -7,27 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".Connexion">
 
-    <EditText
-        android:id="@+id/etLogin"
-        android:layout_width="342dp"
-        android:layout_height="48dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Login"
-        tools:layout_editor_absoluteX="34dp"
-        tools:layout_editor_absoluteY="249dp" />
-
-    <EditText
-        android:id="@+id/etPassword"
-        android:layout_width="342dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="4dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Password"
-        app:layout_constraintTop_toBottomOf="@+id/etLogin"
-        tools:layout_editor_absoluteX="34dp" />
-
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -39,22 +18,43 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.022" />
 
-    <Button
-        android:id="@+id/buttonIdentifier"
-        android:layout_width="417dp"
-        android:layout_height="51dp"
-        android:layout_marginTop="124dp"
-        android:text="S'IDENTIFIER"
-        app:layout_constraintTop_toBottomOf="@+id/etPassword"
-        tools:layout_editor_absoluteX="-3dp" />
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="410dp"
+        android:layout_height="706dp"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="25dp">
 
-    <Button
-        android:id="@+id/buttonInscription"
-        android:layout_width="417dp"
-        android:layout_height="51dp"
-        android:layout_marginTop="12dp"
-        android:text="S'INCRIRE"
-        app:layout_constraintTop_toBottomOf="@+id/buttonIdentifier"
-        tools:layout_editor_absoluteX="-3dp" />
+        <EditText
+            android:id="@+id/etLogin"
+            android:layout_width="342dp"
+            android:layout_height="48dp"
+            android:layout_marginBottom="20dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Ambrinekecebas" />
+
+        <EditText
+            android:id="@+id/etPassword"
+            android:layout_width="340dp"
+            android:layout_height="53dp"
+            android:layout_marginBottom="116dp"
+            android:ems="10"
+            android:inputType="text|textPassword" />
+
+        <Button
+            android:id="@+id/buttonIdentifier"
+            android:layout_width="417dp"
+            android:layout_height="51dp"
+            android:text="S'IDENTIFIER" />
+
+        <Button
+            android:id="@+id/buttonInscription"
+            android:layout_width="417dp"
+            android:layout_height="51dp"
+            android:layout_marginTop="12dp"
+            android:text="S'INCRIRE" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
