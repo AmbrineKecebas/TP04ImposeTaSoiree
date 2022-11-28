@@ -16,6 +16,7 @@ public class Connexion extends AppCompatActivity {
     private Button buttonIdentifier;
     private Button buttonInscription;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +35,7 @@ public class Connexion extends AppCompatActivity {
             Intent i = new Intent(this, Inscription.class);
             startActivity(i);
         });
+
 
 
     }
@@ -59,6 +61,7 @@ public class Connexion extends AppCompatActivity {
             if (jsonObject.getBoolean("success")) {
                 Intent i = new Intent(this, SoireeAVenir.class);
                 startActivity(i);
+                Toast.makeText(this, "Connexion", Toast.LENGTH_SHORT).show();
             } else {
                 Toast.makeText(this, "Mauvais login ou mdp", Toast.LENGTH_SHORT).show();
             }

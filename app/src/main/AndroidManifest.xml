@@ -20,6 +20,9 @@
         android:theme="@style/Theme.TP04ImposeTaSoiree"
         tools:targetApi="31">
         <activity
+            android:name=".DetailSoiree"
+            android:exported="false" />
+        <activity
             android:name=".AjouterSoiree"
             android:exported="false">
             <meta-data

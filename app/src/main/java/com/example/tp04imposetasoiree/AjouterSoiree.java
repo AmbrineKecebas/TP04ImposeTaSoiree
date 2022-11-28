@@ -13,27 +13,34 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class AjouterSoiree extends AppCompatActivity {
-private Button buttonAddSoir ;
+    private Button buttonAddSoir;
+    private Button buttonAnnuler2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ajouter_soiree);
 
         buttonAddSoir = (Button) findViewById(R.id.buttonAddSoir);
-         buttonAddSoir.setOnClickListener(view ->{
-             String libelleC = ((EditText) (findViewById(R.id.etLibelleCourt))).getText().toString();
-             String description = ((EditText) (findViewById(R.id.etDescription))).getText().toString();
-             String date = ((EditText) (findViewById(R.id.etDate))).getText().toString();
-             String heure = ((EditText) (findViewById(R.id.etHeure))).getText().toString();
-             String latitudeString = ((EditText) (findViewById(R.id.etLatitude))).getText().toString();
-             Double latitude = Double.parseDouble(latitudeString);
-             String Stringlongitude = ((EditText) (findViewById(R.id.etLongitude))).getText().toString();
+        buttonAddSoir.setOnClickListener(view -> {
+            String libelleC = ((EditText) (findViewById(R.id.etLibelleCourt))).getText().toString();
+            String description = ((EditText) (findViewById(R.id.etDescription))).getText().toString();
+            String date = ((EditText) (findViewById(R.id.etDate))).getText().toString();
+            String heure = ((EditText) (findViewById(R.id.etHeure))).getText().toString();
+            String latitudeString = ((EditText) (findViewById(R.id.etLatitude))).getText().toString();
+            Double latitude = Double.parseDouble(latitudeString);
+            String Stringlongitude = ((EditText) (findViewById(R.id.etLongitude))).getText().toString();
             Double longitude = Double.parseDouble(Stringlongitude);
-             createAndLaunchASWSAddSoirees(libelleC, description,date,heure,latitude,longitude);
+            createAndLaunchASWSAddSoirees(libelleC, description, date, heure, latitude, longitude);
+        });
+        buttonAnnuler2 = (Button) findViewById(R.id.buttonAnnuler2);
+        buttonAnnuler2.setOnClickListener(view -> {
+            Intent i = new Intent(this, SoireeAVenir.class);
+            startActivity(i);
         });
     }
 
-    private void createAndLaunchASWSAddSoirees(String libelleC,String description,String date,String heure,Double latitude, Double longitude) {
+    private void createAndLaunchASWSAddSoirees(String libelleC, String description, String date, String heure, Double latitude, Double longitude) {
         WSConnexionHTTPS ws = new WSConnexionHTTPS() {
             @Override
             protected void onPostExecute(String s) {
@@ -41,8 +48,8 @@ private Button buttonAddSoir ;
             }
 
         };
-        ws.execute("requete=addSoiree&libelleCourt="+libelleC+"&descriptif="+ description+
-                "&dateDebut="+date+"&heureDebut="+ heure+"&latitude="+ latitude+ "&longitude="+ longitude);
+        ws.execute("requete=addSoiree&libelleCourt=" + libelleC + "&descriptif=" + description +
+                "&dateDebut=" + date + "&heureDebut=" + heure + "&latitude=" + latitude + "&longitude=" + longitude);
     }
 
     private void traiterRetourAddSoirees(String s) {
@@ -62,4 +69,4 @@ private Button buttonAddSoir ;
 
 
     }
-    }
+}

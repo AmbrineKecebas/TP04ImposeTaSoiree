@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetailSoiree">
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="410dp"
+        android:layout_height="180dp"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="6dp">
+
+        <TextView
+            android:id="@+id/tv"
+            android:layout_width="match_parent"
+            android:layout_height="105dp"
+            android:text="TextView" />
+
+        <Button
+            android:id="@+id/buttonLocalSoiree"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Localiser la soirée" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="408dp"
+        android:layout_height="530dp"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="200dp">
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Les membres déjà inscrit à cette soirée :" />
+
+        <ListView
+            android:id="@+id/lvMembresInscrits"
+            android:layout_width="match_parent"
+            android:layout_height="340dp" />
+
+        <Button
+            android:id="@+id/buttonRetour"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="retour" />
+
+        <Button
+            android:id="@+id/buttonSupSoiree"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="supprimer cette soirée" />
+
+        <Button
+            android:id="@+id/buttonDesInsc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Se d'ésinscrire / s'inscrire" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
