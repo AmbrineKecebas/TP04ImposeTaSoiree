@@ -46,14 +46,16 @@ public class SoireeAVenir extends AppCompatActivity {
         });
         buttonDeconnexion = (Button) findViewById(R.id.buttonDeconnexion);
         buttonDeconnexion.setOnClickListener(view -> {
+            createAndLaunchASWSDecMembres();
             Intent i = new Intent(this, Connexion.class);
             startActivity(i);
         });
-//createAndLaunchASWSDecMembres();
+
     }
 
     private void onItemClickListener(Soiree soireeSel) {
         Intent i = new Intent(this, DetailSoiree.class);
+        i.putExtra("soireeSele",soireeSel);
         startActivity(i);
     }
 
@@ -82,30 +84,29 @@ public class SoireeAVenir extends AppCompatActivity {
     }
 
 
-    /**private void createAndLaunchASWSDecMembres() {
-     WSConnexionHTTPS ws = new WSConnexionHTTPS() {
-    @Override protected void onPostExecute(String s) {
-    traiterRetourDecMembres(s);
+    private void createAndLaunchASWSDecMembres() {
+        WSConnexionHTTPS ws = new WSConnexionHTTPS() {
+            @Override
+            protected void onPostExecute(String s) {
+                traiterRetourDecMembres(s);
+            }
+        };
+        ws.execute("requete=deconnexion");
     }
-    };
-     ws.execute("requete=deconnexion");
-     }**/
 
-    /**
-     * private void traiterRetourDecMembres(String s) {
-     * Log.d("TRAITER-RETOUR-DECMEMBRES", s);
-     * try {
-     * JSONObject jsonObject = new JSONObject(s);
-     * if (jsonObject.getBoolean("success")) {
-     * Toast.makeText(this, "Vous êtes déconnecté.", Toast.LENGTH_SHORT).show();
-     * } else {
-     * Toast.makeText(this, "Erreur", Toast.LENGTH_SHORT).show();
-     * }
-     * } catch (JSONException e) {
-     * e.printStackTrace();
-     * }
-     * }
-     **/
+    private void traiterRetourDecMembres(String s) {
+        Log.d("TRAITER-RETOUR-DECMEMBRES", s);
+        try {
+            JSONObject jsonObject = new JSONObject(s);
+            if (jsonObject.getBoolean("success")) {
+                Toast.makeText(this, "Vous êtes déconnecté.", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "Erreur", Toast.LENGTH_SHORT).show();
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
 
     private void createAndLaunchASWSGetSoirees() {
         WSConnexionHTTPS ws = new WSConnexionHTTPS() {

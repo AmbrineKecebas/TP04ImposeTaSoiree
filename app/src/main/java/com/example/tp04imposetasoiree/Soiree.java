@@ -1,7 +1,9 @@
 package com.example.tp04imposetasoiree;
 
-public class Soiree {
-    private String id ;
+import java.io.Serializable;
+
+public class Soiree implements Serializable {
+    private int id ;
     private String libelleCourt;
     private String descriptif;
     private String dateDebut;
@@ -13,12 +15,16 @@ public class Soiree {
 
     public Soiree() {
     }
+    public String afficherDetails(Membre m){
+        String detail = libelleCourt + " " + descriptif + " " + dateDebut + " " + heureDebut + " " + m.getNom() + " " + m.getPrenom() ;
+        return detail ;
+    }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

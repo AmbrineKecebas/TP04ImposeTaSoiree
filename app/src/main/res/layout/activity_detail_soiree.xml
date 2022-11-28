@@ -6,63 +6,80 @@
     android:layout_height="match_parent"
     tools:context=".DetailSoiree">
 
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="410dp"
-        android:layout_height="180dp"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="6dp">
+    <TextView
+        android:id="@+id/tvDetailSoiree"
+        android:layout_width="390dp"
+        android:layout_height="78dp"
+        android:layout_marginTop="5dp"
+        android:text="TextView"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="4dp" />
 
-        <TextView
-            android:id="@+id/tv"
-            android:layout_width="match_parent"
-            android:layout_height="105dp"
-            android:text="TextView" />
+    <Button
+        android:id="@+id/buttonLocalSoiree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="5dp"
+        android:text="Localiser cette soirée"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvDetailSoiree" />
 
-        <Button
-            android:id="@+id/buttonLocalSoiree"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Localiser la soirée" />
-    </LinearLayout>
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="5dp"
+        android:text="Les membres déjà inscrit à cette soirée"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonLocalSoiree" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout3"
-        android:layout_width="408dp"
-        android:layout_height="530dp"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="200dp">
+    <ListView
+        android:id="@+id/lvParticipants"
+        android:layout_width="392dp"
+        android:layout_height="304dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        tools:layout_editor_absoluteX="1dp" />
 
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Les membres déjà inscrit à cette soirée :" />
+    <Button
+        android:id="@+id/buttonRetour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="5dp"
+        android:text="Retour"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lvParticipants" />
 
-        <ListView
-            android:id="@+id/lvMembresInscrits"
-            android:layout_width="match_parent"
-            android:layout_height="340dp" />
+    <Button
+        android:id="@+id/buttonSupSoiree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="5dp"
+        android:text="Supprimer cette soirée"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonRetour" />
 
-        <Button
-            android:id="@+id/buttonRetour"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="retour" />
-
-        <Button
-            android:id="@+id/buttonSupSoiree"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="supprimer cette soirée" />
-
-        <Button
-            android:id="@+id/buttonDesInsc"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Se d'ésinscrire / s'inscrire" />
-    </LinearLayout>
-
+    <Button
+        android:id="@+id/buttonInscrireSoiree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="5dp"
+        android:text="s'inscrire"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonSupSoiree" />
 </androidx.constraintlayout.widget.ConstraintLayout>
