@@ -25,10 +25,11 @@ public class Inscription extends AppCompatActivity {
             String login = ((EditText) (findViewById(R.id.etLog2))).getText().toString();
             String nom = ((EditText) (findViewById(R.id.etNom))).getText().toString();
             String mdp = ((EditText) (findViewById(R.id.etMdp1))).getText().toString();
+            String mdp2 = ((EditText) (findViewById(R.id.etMdp2))).getText().toString();
             String prenom = ((EditText) (findViewById(R.id.etPrenom))).getText().toString();
             String ddn = ((EditText) (findViewById(R.id.etDdn))).getText().toString();
             String mail = ((EditText) (findViewById(R.id.etMail))).getText().toString();
-            createAndExecuteInscriptionMembres(login, mdp, nom, prenom, ddn, mail);
+            createAndExecuteInscriptionMembres(login, mdp,mdp2, nom, prenom, ddn, mail);
         });
         buttonAnnuler = (Button) findViewById(R.id.buttonAnnuler);
         buttonAnnuler.setOnClickListener(view -> {
@@ -38,8 +39,13 @@ public class Inscription extends AppCompatActivity {
 
     }
 
-    private void createAndExecuteInscriptionMembres(String login, String mdp, String nom, String prenom, String ddn, String mail) {
-        WSConnexionHTTPS ws = new WSConnexionHTTPS() {
+    private void createAndExecuteInscriptionMembres(String login, String mdp, String mdp2, String nom, String prenom, String ddn, String mail) {
+
+        if(!mdp2.equals(mdp)){
+            Toast.makeText(this, "Les mots de passes ne correspondent pas.", Toast.LENGTH_SHORT).show();
+
+        }else{
+            WSConnexionHTTPS ws = new WSConnexionHTTPS() {
             @Override
             protected void onPostExecute(String s) {
                 super.onPostExecute(s);
@@ -47,7 +53,8 @@ public class Inscription extends AppCompatActivity {
             }
 
         };
-        ws.execute("requete=creerCompte&login=" + login + "&nom=" + nom + "&prenom=" + prenom + "&ddn=" + ddn + "&mail=" + mail + "&password=" + mdp);
+            ws.execute("requete=creerCompte&login=" + login + "&nom=" + nom + "&prenom=" + prenom + "&ddn=" + ddn + "&mail=" + mail + "&password=" + mdp);
+        }
 
     }
 
