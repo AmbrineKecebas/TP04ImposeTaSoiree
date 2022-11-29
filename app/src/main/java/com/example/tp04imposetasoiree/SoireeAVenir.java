@@ -23,6 +23,7 @@ import java.util.List;
 public class SoireeAVenir extends AppCompatActivity {
     private Button buttonAddSoiree;
     private Button buttonDeconnexion;
+    private Button buttonDelCompte;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,12 +48,46 @@ public class SoireeAVenir extends AppCompatActivity {
             Intent i = new Intent(this, Connexion.class);
             startActivity(i);
         });
+        buttonDelCompte = (Button) findViewById(R.id.buttonDelCompte);
+        buttonDelCompte.setOnClickListener(view -> {
+            createAndLaunchASWSDelCompte();
+        });
+
+    }
+
+    private void createAndLaunchASWSDelCompte() {
+        WSConnexionHTTPS ws = new WSConnexionHTTPS() {
+            @Override
+            protected void onPostExecute(String s) {
+                traiterRetourDelCompte(s);
+            }
+        };
+        ws.execute("requete=supprimerCompte");
+
+    }
+
+    private void traiterRetourDelCompte(String s) {
+        Log.d("RETOUR-SUPPRIMER-COMPTE", s);
+        try {
+            JSONObject jsonObject = new JSONObject(s);
+            if (jsonObject.getBoolean("success")) {
+                setResult(RESULT_OK);
+
+                Toast.makeText(this, "Votre compte a bien été supprimé.", Toast.LENGTH_SHORT).show();
+            } else {
+                setResult(RESULT_CANCELED);
+                Toast.makeText(this, "Erreur.", Toast.LENGTH_SHORT).show();
+            }
+            finish();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
 
     }
 
     private void onItemClickListener(Soiree soireeSel) {
         Intent i = new Intent(this, DetailSoiree.class);
-        i.putExtra("soireeSele",soireeSel);
+        i.putExtra("soireeSele", soireeSel);
         startActivity(i);
     }
 

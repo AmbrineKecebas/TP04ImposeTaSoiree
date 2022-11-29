@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -32,17 +33,9 @@ public class DetailSoiree extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_soiree);
 
-//       buttonInscrireSoireeCache =  (Button) findViewById(R.id.buttonInscrireSoiree);
-//       buttonInscrireSoireeCache.setOnClickListener(new Button.OnClickListener() {
-//        @Override
-//      public void onClick(View view) {
-//
-//          }});
-//       boolean clause = true ;
-//        if ( !clause )
-//        {
-//           buttonInscrireSoireeCache.setVisibility(View.VISIBLE); //SHOW the button
-//        }
+
+//           button.setVisibility(View.VISIBLE); //SHOW the button
+//           button.setVisibility(View.INVISIBLE); //HIDE the button
 
         buttonRetour = (Button) findViewById(R.id.buttonRetour);
 
