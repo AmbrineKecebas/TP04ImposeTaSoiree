@@ -64,6 +64,7 @@ public class DetailSoiree extends AppCompatActivity {
         soireeSele = (Soiree) getIntent().getSerializableExtra("soireeSele");
 
         String loginCreateur = soireeSele.getLogin();
+
         createAndExecuteGetMembreByLogin(loginCreateur, soireeSele);
         createAndLaunchASWSGetLesParticipants(soireeSele.getId());
 

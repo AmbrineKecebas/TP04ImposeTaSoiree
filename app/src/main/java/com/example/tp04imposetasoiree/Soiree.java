@@ -1,9 +1,13 @@
 package com.example.tp04imposetasoiree;
 
 import java.io.Serializable;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 
 public class Soiree implements Serializable {
-    private int id ;
+    private int id;
     private String libelleCourt;
     private String descriptif;
     private String dateDebut;
@@ -11,13 +15,21 @@ public class Soiree implements Serializable {
     private String adresse;
     private Double latitude;
     private Double longitude;
-    private String login ;
+    private String login;
 
     public Soiree() {
     }
-    public String afficherDetails(Membre m){
-        String detail = libelleCourt + " " + descriptif + " " + dateDebut + " " + heureDebut + " " + m.getNom() + " " + m.getPrenom() ;
-        return detail ;
+
+    public String afficherDetails(Membre m) {
+        LocalDate debut = LocalDate.parse(dateDebut);
+        String dateD = debut.format(DateTimeFormatter.ofPattern("d LLLL y").withLocale(Locale.FRANCE));
+
+        LocalTime Hdebut = LocalTime.parse(heureDebut);
+        String heureD = Hdebut.format(DateTimeFormatter.ofPattern("H:mm"));
+
+        String detail = libelleCourt + "\n" + descriptif + "\n" + "Date : " + dateD + "\n" +
+                "Heure : " + heureD + "\n" + "Soirée déposée par : " + m.getNom() + " " + m.getPrenom();
+        return detail;
     }
 
     public int getId() {
@@ -94,6 +106,8 @@ public class Soiree implements Serializable {
 
     @Override
     public String toString() {
-        return libelleCourt + " "+ "("+ dateDebut + ")" ;
+        LocalDate debut = LocalDate.parse(dateDebut);
+        String dateD = debut.format(DateTimeFormatter.ofPattern("d/M/y"));
+        return libelleCourt + " " + "(" + dateD + ")";
     }
 }
