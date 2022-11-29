@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -19,15 +20,33 @@ import org.json.JSONObject;
 import java.util.List;
 
 public class DetailSoiree extends AppCompatActivity {
-    private Membre m ;
+    private Membre m;
     private Button buttonRetour;
     private Button buttonSupSoiree;
+    private Soiree soireeSele;
+    Button buttonInscrireSoiree;
+    Button buttonInscrireSoireeCache;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_soiree);
+
+//        buttonInscrireSoireeCache =  (Button) findViewById(R.id.buttonInscrireSoiree);
+//        buttonInscrireSoireeCache.setOnClickListener(new Button.OnClickListener() {
+//         @Override
+//        public void onClick(View view) {
+//
+//
+//           }
+//         });
+//        if ( !clause )
+//        {
+//            buttonInscrireSoireeCache.setVisibility(View.VISIBLE); //SHOW the button
+//        }
+
         buttonRetour = (Button) findViewById(R.id.buttonRetour);
+
 
         buttonRetour.setOnClickListener(view -> {
             Intent i = new Intent(this, SoireeAVenir.class);
@@ -37,15 +56,61 @@ public class DetailSoiree extends AppCompatActivity {
         buttonSupSoiree.setOnClickListener(view -> {
             Intent i = new Intent(this, SoireeAVenir.class);
             startActivity(i);
+            createAndExecuteDelSoirees(soireeSele.getId());
 
         });
 
-        Soiree soireeSele = (Soiree) getIntent().getSerializableExtra("soireeSele");
+
+        soireeSele = (Soiree) getIntent().getSerializableExtra("soireeSele");
 
         String loginCreateur = soireeSele.getLogin();
         createAndExecuteGetMembreByLogin(loginCreateur, soireeSele);
         createAndLaunchASWSGetLesParticipants(soireeSele.getId());
 
+
+    }
+
+
+    private void traiterRetourGetParticipants(String s) {
+        Log.d("TRAITER-RETOUR-GET-PARTICIPANTS", s);
+        try {
+            JSONObject jsonObject = new JSONObject(s);
+            if (jsonObject.getBoolean("success")) {
+                Toast.makeText(this, "Test", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "Erreur", Toast.LENGTH_SHORT).show();
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+
+    private void createAndExecuteGetMembreByLogin(String loginCreateur, Soiree soireeSele) {
+
+        WSConnexionHTTPS ws = new WSConnexionHTTPS() {
+            @Override
+            protected void onPostExecute(String s) {
+                super.onPostExecute(s);
+                traiterRetourMembreByLog(s, soireeSele);
+            }
+
+        };
+        ws.execute("requete=getMembreByLogin&login=" + loginCreateur);
+    }
+
+    private void traiterRetourMembreByLog(String s, Soiree soireeSele) {
+        Log.d("TRAITER-RETOUR-MEMBRE-BYLOGIN", s);
+        try {
+            ObjectMapper oM = new ObjectMapper();
+            RetourGetMembreByLogin retour = oM.readValue(s, RetourGetMembreByLogin.class);
+            Log.d("retour", retour.getResponse().getNom());
+            m = retour.getResponse();
+            ((TextView) (findViewById(R.id.tvDetailSoiree))).setText(soireeSele.afficherDetails(m));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 
@@ -58,14 +123,14 @@ public class DetailSoiree extends AppCompatActivity {
             }
 
         };
-        ws.execute("requete=getLesParticipants&soiree="+ id);
+        ws.execute("requete=getLesParticipants&soiree=" + id);
     }
 
     private void traiterRetourGetLesParticipants(String s) {
         Log.d("TRAITER-RETOUR-GETLESPARTICPANTS", s);
         try {
             ObjectMapper oM = new ObjectMapper();
-            RetourGetLesParticipants retour =  oM.readValue(s,RetourGetLesParticipants.class);
+            RetourGetLesParticipants retour = oM.readValue(s, RetourGetLesParticipants.class);
             List<Membre> membreList = retour.getResponse();
             ((ListView) findViewById(R.id.lvParticipants)).setAdapter(new ArrayAdapter<>(this,
                     android.R.layout.simple_list_item_1, membreList));
@@ -75,35 +140,18 @@ public class DetailSoiree extends AppCompatActivity {
         }
     }
 
-    private void createAndExecuteGetMembreByLogin(String loginCreateur, Soiree soireeSele) {
-
+    private void createAndLaunchASWSGetParticipants(Soiree idSoiree) {
         WSConnexionHTTPS ws = new WSConnexionHTTPS() {
             @Override
             protected void onPostExecute(String s) {
-                super.onPostExecute(s);
-                traiterRetourMembreByLog(s,soireeSele);
+                traiterRetourGetParticipants(s);
             }
-
         };
-        ws.execute("requete=getMembreByLogin&login=" + loginCreateur);
-    }
-
-    private void traiterRetourMembreByLog(String s,Soiree soireeSele) {
-        Log.d("TRAITER-RETOUR-MEMBRE-BYLOGIN", s);
-        try {
-           ObjectMapper oM = new ObjectMapper();
-         RetourGetMembreByLogin retour =  oM.readValue(s,RetourGetMembreByLogin.class);
-         Log.d("retour", retour.getResponse().getNom());
-           m = retour.getResponse();
-            ((TextView) (findViewById(R.id.tvDetailSoiree))).setText(soireeSele.afficherDetails(m));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
+        ws.execute("requete=getLesParticipants&soiree=" + idSoiree.getId());
     }
 
 
-    private void createAndExecuteDelSoirees(Soiree id) {
+    private void createAndExecuteDelSoirees(int id) {
 
         WSConnexionHTTPS ws = new WSConnexionHTTPS() {
             @Override
@@ -113,7 +161,7 @@ public class DetailSoiree extends AppCompatActivity {
             }
 
         };
-        ws.execute("requete=delSoiree&soiree=" + id.getId());
+        ws.execute("requete=delSoiree&soiree=" + id);
 
     }
 
@@ -122,15 +170,22 @@ public class DetailSoiree extends AppCompatActivity {
         try {
             JSONObject jsonObject = new JSONObject(s);
             if (jsonObject.getBoolean("success")) {
-                Intent i = new Intent(this, SoireeAVenir.class);
-                startActivity(i);
-                Toast.makeText(this, "Suppression validée", Toast.LENGTH_SHORT).show();
+                setResult(RESULT_OK);
+
+                Toast.makeText(this, "La soirée a bien été supprimée.", Toast.LENGTH_SHORT).show();
             } else {
-                Toast.makeText(this, "Erreur", Toast.LENGTH_SHORT).show();
+                setResult(RESULT_CANCELED);
+                Toast.makeText(this, "Erreur de suppression.", Toast.LENGTH_SHORT).show();
             }
+            finish();
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
     }
+
+
+    {
+
     }
+}

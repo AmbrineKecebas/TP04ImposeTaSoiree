@@ -1,5 +1,6 @@
 package com.example.tp04imposetasoiree;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -29,11 +30,7 @@ public class SoireeAVenir extends AppCompatActivity {
         setContentView(R.layout.activity_main2);
 
         createAndLaunchASWSGetSoirees();
-        ((ListView) findViewById(R.id.lvSoirees)).setOnItemLongClickListener((adapterView, view, i, l) -> {
-            Soiree soireeSel = (Soiree) adapterView.getItemAtPosition(i);
-            onItemLongClickLV(soireeSel);
-            return true;
-        });
+
         ((ListView) findViewById(R.id.lvSoirees)).setOnItemClickListener((adapterView, view, i, l) -> {
             Soiree soireeSel = (Soiree) adapterView.getItemAtPosition(i);
             onItemClickListener(soireeSel);
@@ -57,30 +54,6 @@ public class SoireeAVenir extends AppCompatActivity {
         Intent i = new Intent(this, DetailSoiree.class);
         i.putExtra("soireeSele",soireeSel);
         startActivity(i);
-    }
-
-    private void onItemLongClickLV(Soiree soireeSel) {
-        createAndLaunchASWSDelSoirees(soireeSel);
-    }
-
-    private void createAndLaunchASWSDelSoirees(Soiree soireeSel) {
-        WSConnexionHTTPS ws = new WSConnexionHTTPS() {
-            @Override
-            protected void onPostExecute(String s) {
-                traiterRetourDelSoirees(s);
-            }
-        };
-        ws.execute("requete=delSoiree&soiree=" + soireeSel.getId());
-    }
-
-
-    private void traiterRetourDelSoirees(String s) {
-        if (s.equals("1")) {
-            Toast.makeText(this, "Suppression soirée", Toast.LENGTH_SHORT).show();
-            createAndLaunchASWSGetSoirees();
-        } else {
-            Toast.makeText(this, "Erreur ", Toast.LENGTH_SHORT).show();
-        }
     }
 
 
@@ -134,7 +107,13 @@ public class SoireeAVenir extends AppCompatActivity {
         }
     }
 
-
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK) {
+            createAndLaunchASWSGetSoirees();
+        }
+    }
 }
 
 
