@@ -30,9 +30,6 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".MainActivity4"
-            android:exported="false" />
-        <activity
             android:name=".Inscription"
             android:exported="false" />
         <activity

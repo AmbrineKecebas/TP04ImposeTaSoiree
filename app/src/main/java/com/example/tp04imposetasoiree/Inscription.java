@@ -56,8 +56,7 @@ public class Inscription extends AppCompatActivity {
         try {
             JSONObject jsonObject = new JSONObject(s);
             if (jsonObject.getBoolean("success")) {
-                Intent i = new Intent(this, MainActivity4.class);
-                startActivity(i);
+
                 Toast.makeText(this, "Inscription validée", Toast.LENGTH_SHORT).show();
             } else {
                 Toast.makeText(this, "Erreur", Toast.LENGTH_SHORT).show();

@@ -32,17 +32,16 @@ public class DetailSoiree extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_soiree);
 
-//        buttonInscrireSoireeCache =  (Button) findViewById(R.id.buttonInscrireSoiree);
-//        buttonInscrireSoireeCache.setOnClickListener(new Button.OnClickListener() {
-//         @Override
-//        public void onClick(View view) {
+//       buttonInscrireSoireeCache =  (Button) findViewById(R.id.buttonInscrireSoiree);
+//       buttonInscrireSoireeCache.setOnClickListener(new Button.OnClickListener() {
+//        @Override
+//      public void onClick(View view) {
 //
-//
-//           }
-//         });
+//          }});
+//       boolean clause = true ;
 //        if ( !clause )
 //        {
-//            buttonInscrireSoireeCache.setVisibility(View.VISIBLE); //SHOW the button
+//           buttonInscrireSoireeCache.setVisibility(View.VISIBLE); //SHOW the button
 //        }
 
         buttonRetour = (Button) findViewById(R.id.buttonRetour);
@@ -59,6 +58,10 @@ public class DetailSoiree extends AppCompatActivity {
             createAndExecuteDelSoirees(soireeSele.getId());
 
         });
+        buttonInscrireSoireeCache = (Button) findViewById(R.id. buttonInscrireSoireeCache);
+        buttonInscrireSoireeCache.setOnClickListener(view -> {
+            createAndExecuteInscrire(soireeSele.getId());
+        });
 
 
         soireeSele = (Soiree) getIntent().getSerializableExtra("soireeSele");
@@ -70,16 +73,32 @@ public class DetailSoiree extends AppCompatActivity {
 
     }
 
+    private void createAndExecuteInscrire(int id) {
 
-    private void traiterRetourGetParticipants(String s) {
-        Log.d("TRAITER-RETOUR-GET-PARTICIPANTS", s);
+        WSConnexionHTTPS ws = new WSConnexionHTTPS() {
+            @Override
+            protected void onPostExecute(String s) {
+                super.onPostExecute(s);
+                traiterRetourInscrire(s);
+            }
+
+        };
+        ws.execute("requete=inscrire&soiree=" + id);
+    }
+
+    private void traiterRetourInscrire(String s) {
+        Log.d("RETOUR-INSCRIRE",s);
         try {
             JSONObject jsonObject = new JSONObject(s);
             if (jsonObject.getBoolean("success")) {
-                Toast.makeText(this, "Test", Toast.LENGTH_SHORT).show();
+                setResult(RESULT_OK);
+
+                Toast.makeText(this, "Vous êtes inscrit à la soirée.", Toast.LENGTH_SHORT).show();
             } else {
-                Toast.makeText(this, "Erreur", Toast.LENGTH_SHORT).show();
+                setResult(RESULT_CANCELED);
+                Toast.makeText(this, "Erreur.", Toast.LENGTH_SHORT).show();
             }
+            finish();
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -93,15 +112,15 @@ public class DetailSoiree extends AppCompatActivity {
             @Override
             protected void onPostExecute(String s) {
                 super.onPostExecute(s);
-                traiterRetourMembreByLog(s, soireeSele);
+                traiterRetourMembreByLog(s);
             }
 
         };
         ws.execute("requete=getMembreByLogin&login=" + loginCreateur);
     }
 
-    private void traiterRetourMembreByLog(String s, Soiree soireeSele) {
-        Log.d("TRAITER-RETOUR-MEMBRE-BYLOGIN", s);
+    private void traiterRetourMembreByLog(String s) {
+        Log.d("TRAITER-RETOUR-GETMEMBRESBYLOG", s);
         try {
             ObjectMapper oM = new ObjectMapper();
             RetourGetMembreByLogin retour = oM.readValue(s, RetourGetMembreByLogin.class);
@@ -138,6 +157,21 @@ public class DetailSoiree extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private void traiterRetourGetParticipants(String s) {
+        Log.d("TRAITER-RETOUR-GET-PARTICIPANTS", s);
+        try {
+            JSONObject jsonObject = new JSONObject(s);
+            if (jsonObject.getBoolean("success")) {
+                Toast.makeText(this, "Test", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "Erreur", Toast.LENGTH_SHORT).show();
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
     }
 
     private void createAndLaunchASWSGetParticipants(Soiree idSoiree) {
