@@ -32,6 +32,7 @@
             android:layout_height="48dp"
             android:layout_marginBottom="20dp"
             android:ems="10"
+            android:hint="Login"
             android:inputType="textPersonName"
             android:text="Ambrinekecebas" />
 
@@ -41,6 +42,7 @@
             android:layout_height="53dp"
             android:layout_marginBottom="116dp"
             android:ems="10"
+            android:hint="Mot de passe"
             android:inputType="textPassword" />
 
         <Button

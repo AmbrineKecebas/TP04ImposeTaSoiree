@@ -23,8 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="56dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Login"
+        android:hint="Login"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
         tools:layout_editor_absoluteX="16dp" />
 
@@ -34,8 +33,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
         android:ems="10"
+        android:hint="Nom"
         android:inputType="textPersonName"
-        android:text="Nom"
         app:layout_constraintTop_toBottomOf="@+id/etMdp2"
         tools:layout_editor_absoluteX="16dp" />
 
@@ -45,8 +44,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
         android:ems="10"
+        android:hint="Date de naissance"
         android:inputType="textPersonName"
-        android:text="Date de naissance"
         app:layout_constraintTop_toBottomOf="@+id/etPrenom"
         tools:layout_editor_absoluteX="16dp" />
 
@@ -56,8 +55,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
         android:ems="10"
+        android:hint="Prénom"
         android:inputType="textPersonName"
-        android:text="Prenom"
         app:layout_constraintTop_toBottomOf="@+id/etNom"
         tools:layout_editor_absoluteX="17dp" />
 
@@ -67,8 +66,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
         android:ems="10"
+        android:hint="Mail"
         android:inputType="textPersonName"
-        android:text="Mail"
         app:layout_constraintTop_toBottomOf="@+id/etDdn"
         tools:layout_editor_absoluteX="17dp" />
 
@@ -97,6 +96,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
         android:ems="10"
+        android:hint="Mot de passe"
         android:inputType="textPassword"
         app:layout_constraintTop_toBottomOf="@+id/etLog2"
         tools:layout_editor_absoluteX="16dp" />
@@ -107,6 +107,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
         android:ems="10"
+        android:hint="Mot de passe 2"
         android:inputType="textPassword"
         app:layout_constraintBottom_toTopOf="@+id/etNom"
         app:layout_constraintTop_toBottomOf="@+id/etMdp1"

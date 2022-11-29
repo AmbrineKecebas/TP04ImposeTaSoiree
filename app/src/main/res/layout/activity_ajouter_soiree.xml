@@ -18,48 +18,48 @@
             android:layout_width="264dp"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Lib" />
+            android:hint="Libellé"
+            android:inputType="textPersonName" />
 
         <EditText
             android:id="@+id/etDescription"
             android:layout_width="264dp"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Desc" />
+            android:hint="Descriptif de la soirée"
+            android:inputType="textPersonName" />
 
         <EditText
             android:id="@+id/etDate"
             android:layout_width="264dp"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Date" />
+            android:hint="Date"
+            android:inputType="textPersonName" />
 
         <EditText
             android:id="@+id/etHeure"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Heure" />
+            android:hint="Heure"
+            android:inputType="textPersonName" />
 
         <EditText
             android:id="@+id/etLatitude"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="latitude" />
+            android:hint="Latitude"
+            android:inputType="textPersonName" />
 
         <EditText
             android:id="@+id/etLongitude"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="longitude" />
+            android:hint="Longitude"
+            android:inputType="textPersonName" />
 
         <Button
             android:id="@+id/buttonAddSoir"
