@@ -27,7 +27,7 @@ public class Soiree implements Serializable {
         LocalTime Hdebut = LocalTime.parse(heureDebut);
         String heureD = Hdebut.format(DateTimeFormatter.ofPattern("H:mm"));
 
-        String detail = libelleCourt + "\n" + descriptif + "\n" + "Date : " + dateD + "\n" +
+        String detail = descriptif + "\n" + "Date : " + dateD + "\n" +
                 "Heure : " + heureD + "\n" + "Soirée déposée par : " + m.getNom() + " " + m.getPrenom();
         return detail;
     }

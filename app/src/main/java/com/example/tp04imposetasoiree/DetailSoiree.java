@@ -156,6 +156,7 @@ public class DetailSoiree extends AppCompatActivity {
             Log.d("retour", retour.getResponse().getNom());
             m = retour.getResponse();
             ((TextView) (findViewById(R.id.tvDetailSoiree))).setText(soireeSele.afficherDetails(m));
+            ((TextView) (findViewById(R.id.tvLibelleCourt))).setText(soireeSele.getLibelleCourt());
         } catch (Exception e) {
             e.printStackTrace();
         }

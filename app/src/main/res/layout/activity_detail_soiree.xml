@@ -23,10 +23,10 @@
         android:id="@+id/tvDetailSoiree"
         android:layout_width="401dp"
         android:layout_height="106dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="20dp"
         android:text="TextView"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="4dp" />
+        tools:layout_editor_absoluteX="5dp" />
 
     <Button
         android:id="@+id/buttonLocalSoiree"
@@ -96,4 +96,13 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonInscrireSoiree" />
+
+    <TextView
+        android:id="@+id/tvLibelleCourt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/tvDetailSoiree"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
