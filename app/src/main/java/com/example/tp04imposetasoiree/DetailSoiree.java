@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -24,8 +23,9 @@ public class DetailSoiree extends AppCompatActivity {
     private Button buttonRetour;
     private Button buttonSupSoiree;
     private Soiree soireeSele;
-    Button buttonInscrireSoiree;
-    Button buttonInscrireSoireeCache;
+    private Button buttonInscrireSoiree;
+    private Button buttonDesinscrire;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,9 +58,13 @@ public class DetailSoiree extends AppCompatActivity {
             createAndExecuteDelSoirees(soireeSele.getId());
 
         });
-        buttonInscrireSoireeCache = (Button) findViewById(R.id. buttonInscrireSoireeCache);
-        buttonInscrireSoireeCache.setOnClickListener(view -> {
+        buttonInscrireSoiree = (Button) findViewById(R.id.buttonInscrireSoiree);
+        buttonInscrireSoiree.setOnClickListener(view -> {
             createAndExecuteInscrire(soireeSele.getId());
+        });
+        buttonDesinscrire = (Button) findViewById(R.id.buttonDesinscrire);
+        buttonDesinscrire.setOnClickListener(view -> {
+            createAndExecuteDesinscrire(soireeSele.getId());
         });
 
 
@@ -72,6 +76,37 @@ public class DetailSoiree extends AppCompatActivity {
 
 
     }
+
+    private void createAndExecuteDesinscrire(int id) {
+        WSConnexionHTTPS ws = new WSConnexionHTTPS() {
+            @Override
+            protected void onPostExecute(String s) {
+                super.onPostExecute(s);
+                traiterRetourDesinscrire(s);
+            }
+
+        };
+        ws.execute("requete=desinscrire&soiree=" + id);
+    }
+
+    private void traiterRetourDesinscrire(String s) {
+        Log.d("RETOUR-DESINSCRIRE",s);
+        try {
+            JSONObject jsonObject = new JSONObject(s);
+            if (jsonObject.getBoolean("success")) {
+                setResult(RESULT_OK);
+
+                Toast.makeText(this, "Désinscrit.", Toast.LENGTH_SHORT).show();
+            } else {
+                setResult(RESULT_CANCELED);
+                Toast.makeText(this, "Erreur.", Toast.LENGTH_SHORT).show();
+            }
+            finish();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     private void createAndExecuteInscrire(int id) {
 
