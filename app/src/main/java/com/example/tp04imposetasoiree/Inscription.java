@@ -42,6 +42,7 @@ public class Inscription extends AppCompatActivity {
         int mYear = c.get(Calendar.YEAR);
         int mMonth = c.get(Calendar.MONTH);
         int mDay = c.get(Calendar.DAY_OF_MONTH);
+        etDdn.setFocusable(false);
         etDdn.setOnClickListener(view -> {
             DatePickerDialog datePicker = new DatePickerDialog(Inscription.this, new DatePickerDialog.OnDateSetListener() {
                 @Override
