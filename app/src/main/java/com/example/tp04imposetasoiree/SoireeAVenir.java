@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -24,6 +25,7 @@ public class SoireeAVenir extends AppCompatActivity {
     private Button buttonAddSoiree;
     private Button buttonDeconnexion;
     private Button buttonDelCompte;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +53,9 @@ public class SoireeAVenir extends AppCompatActivity {
         buttonDelCompte = (Button) findViewById(R.id.buttonDelCompte);
         buttonDelCompte.setOnClickListener(view -> {
             createAndLaunchASWSDelCompte();
+
         });
+
 
     }
 
@@ -73,7 +77,8 @@ public class SoireeAVenir extends AppCompatActivity {
             if (jsonObject.getBoolean("success")) {
                 setResult(RESULT_OK);
 
-                Toast.makeText(this, "Votre compte a bien été supprimé.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Votre compte a bien été supprimé.", Toast.LENGTH_LONG).show();
+
             } else {
                 setResult(RESULT_CANCELED);
                 Toast.makeText(this, "Erreur.", Toast.LENGTH_SHORT).show();
@@ -147,8 +152,10 @@ public class SoireeAVenir extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK) {
             createAndLaunchASWSGetSoirees();
+
         }
     }
+
 }
 
 

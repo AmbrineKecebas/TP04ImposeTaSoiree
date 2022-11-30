@@ -19,57 +19,62 @@
 
     <EditText
         android:id="@+id/etLog2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="282dp"
+        android:layout_height="51dp"
         android:layout_marginTop="56dp"
         android:ems="10"
         android:hint="Login"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        tools:layout_editor_absoluteX="16dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <EditText
         android:id="@+id/etNom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="281dp"
+        android:layout_height="50dp"
         android:layout_marginTop="28dp"
         android:ems="10"
         android:hint="Nom"
         android:inputType="textPersonName"
-        app:layout_constraintTop_toBottomOf="@+id/etMdp2"
-        tools:layout_editor_absoluteX="16dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etMdp2" />
 
     <EditText
         android:id="@+id/etDdn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="282dp"
+        android:layout_height="50dp"
         android:layout_marginTop="28dp"
         android:ems="10"
         android:hint="Date de naissance"
         android:inputType="textPersonName"
-        app:layout_constraintTop_toBottomOf="@+id/etPrenom"
-        tools:layout_editor_absoluteX="16dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etPrenom" />
 
     <EditText
         android:id="@+id/etPrenom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="281dp"
+        android:layout_height="46dp"
         android:layout_marginTop="28dp"
         android:ems="10"
         android:hint="Prénom"
         android:inputType="textPersonName"
-        app:layout_constraintTop_toBottomOf="@+id/etNom"
-        tools:layout_editor_absoluteX="17dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etNom" />
 
     <EditText
         android:id="@+id/etMail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="287dp"
+        android:layout_height="49dp"
         android:layout_marginTop="28dp"
         android:ems="10"
         android:hint="Mail"
         android:inputType="textPersonName"
-        app:layout_constraintTop_toBottomOf="@+id/etDdn"
-        tools:layout_editor_absoluteX="17dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etDdn" />
 
     <TextView
         android:id="@+id/textView2"
@@ -88,30 +93,33 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="@+id/buttonAnnuler"
         app:layout_constraintVertical_bias="0.0"
+        app:strokeColor="#FFFFFF"
         tools:layout_editor_absoluteX="31dp" />
 
     <EditText
         android:id="@+id/etMdp1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="280dp"
+        android:layout_height="51dp"
         android:layout_marginTop="28dp"
         android:ems="10"
         android:hint="Mot de passe"
         android:inputType="textPassword"
-        app:layout_constraintTop_toBottomOf="@+id/etLog2"
-        tools:layout_editor_absoluteX="16dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etLog2" />
 
     <EditText
         android:id="@+id/etMdp2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="282dp"
+        android:layout_height="47dp"
         android:layout_marginTop="28dp"
         android:ems="10"
         android:hint="Mot de passe 2"
         android:inputType="textPassword"
         app:layout_constraintBottom_toTopOf="@+id/etNom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etMdp1"
-        app:layout_constraintVertical_bias="0.0"
-        tools:layout_editor_absoluteX="16dp" />
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

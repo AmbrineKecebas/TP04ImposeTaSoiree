@@ -84,7 +84,7 @@ public class DetailSoiree extends AppCompatActivity {
     }
 
     private void traiterRetourDesinscrire(String s) {
-        Log.d("RETOUR-DESINSCRIRE",s);
+        Log.d("RETOUR-DESINSCRIRE", s);
         try {
             JSONObject jsonObject = new JSONObject(s);
             if (jsonObject.getBoolean("success")) {
@@ -116,7 +116,7 @@ public class DetailSoiree extends AppCompatActivity {
     }
 
     private void traiterRetourInscrire(String s) {
-        Log.d("RETOUR-INSCRIRE",s);
+        Log.d("RETOUR-INSCRIRE", s);
         try {
             JSONObject jsonObject = new JSONObject(s);
             if (jsonObject.getBoolean("success")) {

@@ -30,6 +30,7 @@ public class Inscription extends AppCompatActivity {
             String ddn = ((EditText) (findViewById(R.id.etDdn))).getText().toString();
             String mail = ((EditText) (findViewById(R.id.etMail))).getText().toString();
             createAndExecuteInscriptionMembres(login, mdp,mdp2, nom, prenom, ddn, mail);
+
         });
         buttonAnnuler = (Button) findViewById(R.id.buttonAnnuler);
         buttonAnnuler.setOnClickListener(view -> {
@@ -63,7 +64,6 @@ public class Inscription extends AppCompatActivity {
         try {
             JSONObject jsonObject = new JSONObject(s);
             if (jsonObject.getBoolean("success")) {
-
                 Toast.makeText(this, "Inscription validée", Toast.LENGTH_SHORT).show();
             } else {
                 Toast.makeText(this, "Erreur", Toast.LENGTH_SHORT).show();

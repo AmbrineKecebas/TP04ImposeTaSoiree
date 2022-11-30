@@ -107,7 +107,8 @@ public class Soiree implements Serializable {
     @Override
     public String toString() {
         LocalDate debut = LocalDate.parse(dateDebut);
-        String dateD = debut.format(DateTimeFormatter.ofPattern("d/M/y"));
-        return libelleCourt + " " + "(" + dateD + ")";
+        String dateD = debut.format(DateTimeFormatter.ofPattern("dd/M/y"));
+
+        return libelleCourt + " " + "(" + dateD + ")" + " - " + login;
     }
 }
