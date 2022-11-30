@@ -50,7 +50,7 @@ public class Inscription extends AppCompatActivity {
             @Override
             protected void onPostExecute(String s) {
                 super.onPostExecute(s);
-                traiterRetourGetInscriptionMembres(s);
+                traiterRetourGetInscriptionMembres(s,login,mdp);
             }
 
         };
@@ -59,18 +59,27 @@ public class Inscription extends AppCompatActivity {
 
     }
 
-    private void traiterRetourGetInscriptionMembres(String s) {
+    private void traiterRetourGetInscriptionMembres(String s,String login, String mdp) {
         Log.d("TRAITER-RETOUR-INSCRIPTION-MEMBRES", s);
         try {
             JSONObject jsonObject = new JSONObject(s);
             if (jsonObject.getBoolean("success")) {
+                Intent donneesConnexion = new Intent();
+                donneesConnexion.putExtra("login",login);
+                donneesConnexion.putExtra("mdp",mdp);
+                setResult(RESULT_OK, donneesConnexion);
+
+
                 Toast.makeText(this, "Inscription validée", Toast.LENGTH_SHORT).show();
             } else {
+                setResult(RESULT_CANCELED);
                 Toast.makeText(this, "Erreur", Toast.LENGTH_SHORT).show();
             }
+            finish();
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
     }
+
 }

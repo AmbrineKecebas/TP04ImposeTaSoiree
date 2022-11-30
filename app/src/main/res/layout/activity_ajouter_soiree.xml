@@ -31,19 +31,18 @@
 
         <EditText
             android:id="@+id/etDate"
-            android:layout_width="264dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Date"
-            android:inputType="textPersonName" />
+            android:inputType="date" />
+
 
         <EditText
             android:id="@+id/etHeure"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Heure"
-            android:inputType="textPersonName" />
+            android:inputType="time" />
 
         <EditText
             android:id="@+id/etLatitude"
@@ -72,5 +71,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="ANNULER" />
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

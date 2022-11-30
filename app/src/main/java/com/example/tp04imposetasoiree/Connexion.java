@@ -17,8 +17,8 @@ import org.json.JSONObject;
 public class Connexion extends AppCompatActivity {
     private Button buttonIdentifier;
     private Button buttonInscription;
-    public static int REQUEST_SOIREE_A_VENIR ;
-
+    public static int REQUEST_SOIREE_A_VENIR = 1;
+    public static int REQUEST_INSCRIPTION = 2 ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +35,7 @@ public class Connexion extends AppCompatActivity {
         buttonInscription = (Button) findViewById(R.id.buttonInscription);
         buttonInscription.setOnClickListener(view -> {
             Intent i = new Intent(this, Inscription.class);
-            startActivity(i);
+            startActivityForResult(i,REQUEST_INSCRIPTION);
         });
 
 
@@ -79,7 +79,12 @@ public class Connexion extends AppCompatActivity {
             ((EditText) findViewById(R.id.etLogin)).setText("");
             ((EditText) findViewById(R.id.etPassword)).setText("");
 
+        }else if(requestCode== REQUEST_INSCRIPTION && resultCode == RESULT_OK){
+            ((EditText) findViewById(R.id.etLogin)).setText(data.getStringExtra("login"));
+            ((EditText) findViewById(R.id.etPassword)).setText(data.getStringExtra("mdp"));
+
         }
+
     }
 
 }
