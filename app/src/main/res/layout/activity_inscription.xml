@@ -1,127 +1,133 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".Inscription">
+    android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/buttonAnnuler"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:text="Annuler"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etMail"
-        app:layout_constraintVertical_bias="0.475" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".Inscription">
 
-    <EditText
-        android:id="@+id/etLog2"
-        android:layout_width="282dp"
-        android:layout_height="51dp"
-        android:layout_marginTop="56dp"
-        android:ems="10"
-        android:hint="Login"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        <Button
+            android:id="@+id/buttonAnnuler"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:text="Annuler"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etMail"
+            app:layout_constraintVertical_bias="0.475" />
 
-    <EditText
-        android:id="@+id/etNom"
-        android:layout_width="281dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="28dp"
-        android:ems="10"
-        android:hint="Nom"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etMdp2" />
+        <EditText
+            android:id="@+id/etLog2"
+            android:layout_width="282dp"
+            android:layout_height="51dp"
+            android:layout_marginTop="56dp"
+            android:ems="10"
+            android:hint="Login"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
-    <EditText
-        android:id="@+id/etDdn"
-        android:layout_width="282dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="28dp"
-        android:ems="10"
-        android:hint="Date de naissance"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etPrenom" />
+        <EditText
+            android:id="@+id/etNom"
+            android:layout_width="281dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="28dp"
+            android:ems="10"
+            android:hint="Nom"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etMdp2" />
 
-    <EditText
-        android:id="@+id/etPrenom"
-        android:layout_width="281dp"
-        android:layout_height="46dp"
-        android:layout_marginTop="28dp"
-        android:ems="10"
-        android:hint="Prénom"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etNom" />
+        <EditText
+            android:id="@+id/etDdn"
+            android:layout_width="282dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="28dp"
+            android:ems="10"
+            android:hint="Date de naissance"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etPrenom" />
 
-    <EditText
-        android:id="@+id/etMail"
-        android:layout_width="287dp"
-        android:layout_height="49dp"
-        android:layout_marginTop="28dp"
-        android:ems="10"
-        android:hint="Mail"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etDdn" />
+        <EditText
+            android:id="@+id/etPrenom"
+            android:layout_width="281dp"
+            android:layout_height="46dp"
+            android:layout_marginTop="28dp"
+            android:ems="10"
+            android:hint="Prénom"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etNom" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Identification du membre"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <EditText
+            android:id="@+id/etMail"
+            android:layout_width="287dp"
+            android:layout_height="49dp"
+            android:layout_marginTop="28dp"
+            android:ems="10"
+            android:hint="Mail"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etDdn" />
 
-    <Button
-        android:id="@+id/buttonValider"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="31dp"
-        android:text="Valider"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/buttonAnnuler"
-        app:layout_constraintVertical_bias="0.0"
-        app:strokeColor="#FFFFFF" />
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Identification du membre"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/etMdp1"
-        android:layout_width="280dp"
-        android:layout_height="51dp"
-        android:layout_marginTop="28dp"
-        android:ems="10"
-        android:hint="Mot de passe"
-        android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etLog2" />
+        <Button
+            android:id="@+id/buttonValider"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="31dp"
+            android:text="Valider"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/buttonAnnuler"
+            app:layout_constraintVertical_bias="0.0"
+            app:strokeColor="#FFFFFF" />
 
-    <EditText
-        android:id="@+id/etMdp2"
-        android:layout_width="282dp"
-        android:layout_height="47dp"
-        android:layout_marginTop="28dp"
-        android:ems="10"
-        android:hint="Mot de passe 2"
-        android:inputType="textPassword"
-        app:layout_constraintBottom_toTopOf="@+id/etNom"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etMdp1"
-        app:layout_constraintVertical_bias="0.0" />
+        <EditText
+            android:id="@+id/etMdp1"
+            android:layout_width="280dp"
+            android:layout_height="51dp"
+            android:layout_marginTop="28dp"
+            android:ems="10"
+            android:hint="Mot de passe"
+            android:inputType="textPassword"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etLog2" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <EditText
+            android:id="@+id/etMdp2"
+            android:layout_width="282dp"
+            android:layout_height="47dp"
+            android:layout_marginTop="28dp"
+            android:ems="10"
+            android:hint="Mot de passe 2"
+            android:inputType="textPassword"
+            app:layout_constraintBottom_toTopOf="@+id/etNom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etMdp1"
+            app:layout_constraintVertical_bias="0.0" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
