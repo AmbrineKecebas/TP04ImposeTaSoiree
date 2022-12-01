@@ -90,12 +90,13 @@
         android:id="@+id/buttonValider"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="31dp"
         android:text="Valider"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/buttonAnnuler"
         app:layout_constraintVertical_bias="0.0"
-        app:strokeColor="#FFFFFF"
-        tools:layout_editor_absoluteX="31dp" />
+        app:strokeColor="#FFFFFF" />
 
     <EditText
         android:id="@+id/etMdp1"

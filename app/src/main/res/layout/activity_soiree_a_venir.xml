@@ -20,11 +20,12 @@
 
     <ListView
         android:id="@+id/lvSoirees"
-        android:layout_width="409dp"
+        android:layout_width="0dp"
         android:layout_height="344dp"
         android:layout_marginTop="6dp"
-        app:layout_constraintTop_toBottomOf="@+id/textView3"
-        tools:layout_editor_absoluteX="0dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3">
 
     </ListView>
 
@@ -51,20 +52,22 @@
 
     <Button
         android:id="@+id/buttonDeconnexion"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:text="Deconnexion"
-        app:layout_constraintTop_toBottomOf="@+id/buttonCarte"
-        tools:layout_editor_absoluteX="0dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonCarte" />
 
     <Button
         android:id="@+id/buttonDelCompte"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="Supprimer mon compte"
-        app:layout_constraintTop_toBottomOf="@+id/buttonDeconnexion"
-        tools:layout_editor_absoluteX="-16dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonDeconnexion" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
