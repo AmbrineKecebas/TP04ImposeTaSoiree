@@ -3,12 +3,14 @@ package com.example.tp04imposetasoiree;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import org.json.JSONException;
@@ -20,6 +22,7 @@ public class AjouterSoiree extends AppCompatActivity {
     private Button buttonAddSoir;
     private Button buttonAnnuler2;
     private EditText etDate;
+    private EditText etHeure;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +60,20 @@ public class AjouterSoiree extends AppCompatActivity {
                 }
             }, mYear, mMonth, mDay);
             datePicker.show();
+
+        });
+        etHeure = (EditText) findViewById(R.id.etHeure);
+        int heure = c.get(Calendar.HOUR_OF_DAY);
+        int minute = c.get(Calendar.MINUTE);
+        etHeure.setFocusable(false);
+        etHeure.setOnClickListener(view -> {
+            TimePickerDialog timePicker = new TimePickerDialog(AjouterSoiree.this, new TimePickerDialog.OnTimeSetListener() {
+                @Override
+                public void onTimeSet(TimePicker timePicker, int h, int m) {
+                    etHeure.setText(h + ":" + m );
+                }
+            }, heure, minute, true);
+            timePicker.show();
 
         });
 
