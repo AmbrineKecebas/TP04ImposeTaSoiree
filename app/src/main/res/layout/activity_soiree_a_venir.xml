@@ -5,9 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".SoireeAVenir">
@@ -38,8 +36,8 @@
         <Button
             android:id="@+id/buttonAddSoiree"
             style="@style/Widget.AppCompat.Button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="250dp"
+            android:layout_height="51dp"
             android:layout_marginTop="30dp"
             android:text="Ajouter ma soirée"
             app:layout_constraintEnd_toEndOf="parent"
@@ -48,7 +46,7 @@
 
         <Button
             android:id="@+id/buttonCarte"
-            android:layout_width="wrap_content"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:text="Carte des soirées"
@@ -58,8 +56,8 @@
 
         <Button
             android:id="@+id/buttonDeconnexion"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="250dp"
+            android:layout_height="51dp"
             android:layout_marginTop="50dp"
             android:text="Deconnexion"
             app:layout_constraintEnd_toEndOf="parent"
@@ -68,8 +66,8 @@
 
         <Button
             android:id="@+id/buttonDelCompte"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="250dp"
+            android:layout_height="51dp"
             android:layout_marginTop="10dp"
             android:text="Supprimer mon compte"
             app:layout_constraintEnd_toEndOf="parent"
