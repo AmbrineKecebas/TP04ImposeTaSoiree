@@ -24,8 +24,8 @@
 
         <ListView
             android:id="@+id/lvSoirees"
-            android:layout_width="0dp"
-            android:layout_height="344dp"
+            android:layout_width="369dp"
+            android:layout_height="333dp"
             android:layout_marginTop="6dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
