@@ -6,71 +6,104 @@
     android:layout_height="match_parent"
     tools:context=".AjouterSoiree">
 
-    <LinearLayout
-        android:layout_width="373dp"
-        android:layout_height="652dp"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="67dp">
+    <EditText
+        android:id="@+id/etLibelleCourt"
+        android:layout_width="264dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:ems="10"
+        android:hint="Libellé"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
-        <EditText
-            android:id="@+id/etLibelleCourt"
-            android:layout_width="264dp"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Libellé"
-            android:inputType="textPersonName" />
+    <EditText
+        android:id="@+id/etDescription"
+        android:layout_width="264dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:hint="Descriptif de la soirée"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etLibelleCourt" />
 
-        <EditText
-            android:id="@+id/etDescription"
-            android:layout_width="264dp"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Descriptif de la soirée"
-            android:inputType="textPersonName" />
+    <EditText
+        android:id="@+id/etDate"
+        android:layout_width="263dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:inputType="date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etDescription" />
 
-        <EditText
-            android:id="@+id/etDate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="date" />
+    <EditText
+        android:id="@+id/etHeure"
+        android:layout_width="260dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:hint="Heure "
+        android:inputType="time"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etDate" />
 
+    <EditText
+        android:id="@+id/etLatitude"
+        android:layout_width="261dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="15dp"
+        android:ems="10"
+        android:hint="Latitude"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etHeure" />
 
-        <EditText
-            android:id="@+id/etHeure"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="time" />
+    <EditText
+        android:id="@+id/etLongitude"
+        android:layout_width="253dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:hint="Longitude"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etLatitude" />
 
-        <EditText
-            android:id="@+id/etLatitude"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Latitude"
-            android:inputType="textPersonName" />
+    <Button
+        android:id="@+id/buttonAddSoir"
+        android:layout_width="352dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:text="Ajouter cette soirée"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etLongitude" />
 
-        <EditText
-            android:id="@+id/etLongitude"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Longitude"
-            android:inputType="textPersonName" />
+    <Button
+        android:id="@+id/buttonAnnuler2"
+        android:layout_width="350dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="15dp"
+        android:text="ANNULER"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonAddSoir" />
 
-        <Button
-            android:id="@+id/buttonAddSoir"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Ajouter cette soirée" />
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ajouter une soirée"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="14dp" />
 
-        <Button
-            android:id="@+id/buttonAnnuler2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="ANNULER" />
-
-    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

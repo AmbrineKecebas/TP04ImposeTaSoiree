@@ -92,10 +92,10 @@ public class Inscription extends AppCompatActivity {
                 setResult(RESULT_OK, donneesConnexion);
 
 
-                Toast.makeText(this, "Inscription validée", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Inscription validée.", Toast.LENGTH_SHORT).show();
             } else {
                 setResult(RESULT_CANCELED);
-                Toast.makeText(this, "Erreur", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Inscription non valide.", Toast.LENGTH_SHORT).show();
             }
             finish();
         } catch (JSONException e) {

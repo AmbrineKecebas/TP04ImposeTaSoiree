@@ -18,57 +18,53 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.022" />
 
-    <LinearLayout
-        android:layout_width="414dp"
-        android:layout_height="709dp"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="24dp">
+    <ListView
+        android:id="@+id/lvSoirees"
+        android:layout_width="409dp"
+        android:layout_height="344dp"
+        android:layout_marginTop="6dp"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        tools:layout_editor_absoluteX="0dp">
 
-        <ListView
-            android:id="@+id/lvSoirees"
-            android:layout_width="409dp"
-            android:layout_height="344dp"
-            android:layout_marginTop="120dp" />
+    </ListView>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="61dp"
-            android:orientation="horizontal">
+    <Button
+        android:id="@+id/buttonAddSoiree"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="Ajouter ma soirée"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lvSoirees" />
 
-            <Button
-                android:id="@+id/buttonAddSoiree"
-                style="@style/Widget.AppCompat.Button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Ajouter ma soirée" />
+    <Button
+        android:id="@+id/buttonCarte"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="Carte des soirées"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonAddSoiree" />
 
-            <Button
-                android:id="@+id/buttonCarte"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Carte des soirées" />
+    <Button
+        android:id="@+id/buttonDeconnexion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="Deconnexion"
+        app:layout_constraintTop_toBottomOf="@+id/buttonCarte"
+        tools:layout_editor_absoluteX="0dp" />
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="133dp"
-            android:orientation="vertical">
-
-            <Button
-                android:id="@+id/buttonDeconnexion"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Deconnexion" />
-
-            <Button
-                android:id="@+id/buttonDelCompte"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Supprimer mon compte" />
-        </LinearLayout>
-
-    </LinearLayout>
+    <Button
+        android:id="@+id/buttonDelCompte"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Supprimer mon compte"
+        app:layout_constraintTop_toBottomOf="@+id/buttonDeconnexion"
+        tools:layout_editor_absoluteX="-16dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

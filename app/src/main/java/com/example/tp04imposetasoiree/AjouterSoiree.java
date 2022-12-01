@@ -2,19 +2,24 @@ package com.example.tp04imposetasoiree;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Calendar;
+
 public class AjouterSoiree extends AppCompatActivity {
     private Button buttonAddSoir;
     private Button buttonAnnuler2;
+    private EditText etDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +43,23 @@ public class AjouterSoiree extends AppCompatActivity {
             Intent i = new Intent(this, SoireeAVenir.class);
             startActivity(i);
         });
+        etDate = (EditText) findViewById(R.id.etDate);
+        final Calendar c = Calendar.getInstance();
+        int mYear = c.get(Calendar.YEAR);
+        int mMonth = c.get(Calendar.MONTH);
+        int mDay = c.get(Calendar.DAY_OF_MONTH);
+        etDate.setFocusable(false);
+        etDate.setOnClickListener(view -> {
+            DatePickerDialog datePicker = new DatePickerDialog(AjouterSoiree.this, new DatePickerDialog.OnDateSetListener() {
+                @Override
+                public void onDateSet(DatePicker datePicker, int annee, int mois, int jour) {
+                    etDate.setText(annee + "-" + mois + "-" + jour);
+                }
+            }, mYear, mMonth, mDay);
+            datePicker.show();
+
+        });
+
     }
 
     private void createAndLaunchASWSAddSoirees(String libelleC, String description, String date, String heure, Double latitude, Double longitude) {

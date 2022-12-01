@@ -19,6 +19,7 @@ public class Connexion extends AppCompatActivity {
     private Button buttonInscription;
     public static int REQUEST_SOIREE_A_VENIR = 1;
     public static int REQUEST_INSCRIPTION = 2 ;
+    public static String login ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
