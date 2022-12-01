@@ -11,6 +11,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -18,8 +22,9 @@ public class Connexion extends AppCompatActivity {
     private Button buttonIdentifier;
     private Button buttonInscription;
     public static int REQUEST_SOIREE_A_VENIR = 1;
-    public static int REQUEST_INSCRIPTION = 2 ;
-    public static String login ;
+    public static int REQUEST_INSCRIPTION = 2;
+    public static String login;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,7 +41,7 @@ public class Connexion extends AppCompatActivity {
         buttonInscription = (Button) findViewById(R.id.buttonInscription);
         buttonInscription.setOnClickListener(view -> {
             Intent i = new Intent(this, Inscription.class);
-            startActivityForResult(i,REQUEST_INSCRIPTION);
+            startActivityForResult(i, REQUEST_INSCRIPTION);
         });
 
 
@@ -61,6 +66,11 @@ public class Connexion extends AppCompatActivity {
         try {
             JSONObject jsonObject = new JSONObject(s);
             if (jsonObject.getBoolean("success")) {
+                ObjectMapper oM = new ObjectMapper();
+                RetourGetConnexion retourGetConnexion = oM.readValue(s, RetourGetConnexion.class);
+                Log.d("retour-get-connexion", retourGetConnexion.getResponse().getLogin());
+                Membre m = retourGetConnexion.getResponse();
+                login = m.getLogin();
                 Intent i = new Intent(this, SoireeAVenir.class);
                 startActivityForResult(i, REQUEST_SOIREE_A_VENIR);
                 Toast.makeText(this, "Connexion", Toast.LENGTH_SHORT).show();
@@ -69,18 +79,23 @@ public class Connexion extends AppCompatActivity {
             }
         } catch (JSONException e) {
             e.printStackTrace();
+        } catch (JsonMappingException e) {
+            e.printStackTrace();
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
         }
 
     }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if ( requestCode== REQUEST_SOIREE_A_VENIR && resultCode == RESULT_OK) {
+        if (requestCode == REQUEST_SOIREE_A_VENIR && resultCode == RESULT_OK) {
 
             ((EditText) findViewById(R.id.etLogin)).setText("");
             ((EditText) findViewById(R.id.etPassword)).setText("");
 
-        }else if(requestCode== REQUEST_INSCRIPTION && resultCode == RESULT_OK){
+        } else if (requestCode == REQUEST_INSCRIPTION && resultCode == RESULT_OK) {
             ((EditText) findViewById(R.id.etLogin)).setText(data.getStringExtra("login"));
             ((EditText) findViewById(R.id.etPassword)).setText(data.getStringExtra("mdp"));
 
