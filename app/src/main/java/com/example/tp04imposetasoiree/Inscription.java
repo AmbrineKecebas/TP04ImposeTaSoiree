@@ -24,7 +24,7 @@ public class Inscription extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main3);
+        setContentView(R.layout.activity_inscription);
         buttonValider = (Button) findViewById(R.id.buttonValider);
         buttonValider.setOnClickListener(view -> {
             String login = ((EditText) (findViewById(R.id.etLog2))).getText().toString();

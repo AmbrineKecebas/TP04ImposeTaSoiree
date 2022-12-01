@@ -36,6 +36,7 @@
         android:layout_height="50dp"
         android:layout_marginTop="10dp"
         android:ems="10"
+        android:hint="Date"
         android:inputType="date"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -67,8 +68,8 @@
 
     <EditText
         android:id="@+id/etLongitude"
-        android:layout_width="253dp"
-        android:layout_height="57dp"
+        android:layout_width="260dp"
+        android:layout_height="58dp"
         android:layout_marginTop="10dp"
         android:ems="10"
         android:hint="Longitude"
