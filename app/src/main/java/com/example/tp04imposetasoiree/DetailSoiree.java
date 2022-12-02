@@ -64,7 +64,7 @@ public class DetailSoiree extends AppCompatActivity {
         soireeSele = (Soiree) getIntent().getSerializableExtra("soireeSele");
 
         String loginCreateur = soireeSele.getLogin();
-        if (loginCreateur.equals(Connexion.login)) {
+        if (loginCreateur.equalsIgnoreCase(Connexion.login)) {
             buttonDesinscrire.setVisibility(View.INVISIBLE);
             buttonInscrireSoiree.setVisibility(View.INVISIBLE);
 

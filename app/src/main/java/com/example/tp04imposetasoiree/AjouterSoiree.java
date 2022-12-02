@@ -41,7 +41,7 @@ public class AjouterSoiree extends AppCompatActivity {
             Double longitude = Double.parseDouble(Stringlongitude);
             createAndLaunchASWSAddSoirees(libelleC, description, date, heure, latitude, longitude);
         });
-        buttonAnnuler2 = (Button) findViewById(R.id.buttonAnnuler2);
+        buttonAnnuler2 = (Button) findViewById(R.id.buttonAnnulerAjoutSoiree);
         buttonAnnuler2.setOnClickListener(view -> {
             Intent i = new Intent(this, SoireeAVenir.class);
             startActivity(i);
@@ -56,10 +56,11 @@ public class AjouterSoiree extends AppCompatActivity {
             DatePickerDialog datePicker = new DatePickerDialog(AjouterSoiree.this, new DatePickerDialog.OnDateSetListener() {
                 @Override
                 public void onDateSet(DatePicker datePicker, int annee, int mois, int jour) {
-                    etDate.setText(annee + "-" + mois + "-" + jour);
+                    etDate.setText(annee + "-" + mois+1 + "-" + jour);
                 }
             }, mYear, mMonth, mDay);
             datePicker.show();
+
 
         });
         etHeure = (EditText) findViewById(R.id.etHeure);
@@ -69,7 +70,7 @@ public class AjouterSoiree extends AppCompatActivity {
         etHeure.setOnClickListener(view -> {
             TimePickerDialog timePicker = new TimePickerDialog(AjouterSoiree.this, new TimePickerDialog.OnTimeSetListener() {
                 @Override
-                public void onTimeSet(TimePicker timePicker, int h, int m) {
+                public void onTimeSet(TimePicker timePicker, int h, int m){
                     etHeure.setText(h + ":" + m );
                 }
             }, heure, minute, true);
