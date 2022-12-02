@@ -47,7 +47,7 @@ public class Inscription extends AppCompatActivity {
             DatePickerDialog datePicker = new DatePickerDialog(Inscription.this, new DatePickerDialog.OnDateSetListener() {
                 @Override
                 public void onDateSet(DatePicker datePicker, int annee, int mois, int jour) {
-                    etDdn.setText(annee + "-" + mois + "-" + jour);
+                    etDdn.setText(annee + "-" + (mois+1) + "-" + jour);
                 }
             }, mYear, mMonth, mDay);
             datePicker.show();
