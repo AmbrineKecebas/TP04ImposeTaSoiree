@@ -44,8 +44,7 @@ public class SoireeAVenir extends AppCompatActivity {
         buttonDeconnexion = (Button) findViewById(R.id.buttonDeconnexion);
         buttonDeconnexion.setOnClickListener(view -> {
             createAndLaunchASWSDecMembres();
-            Intent i = new Intent(this, Connexion.class);
-            startActivity(i);
+            finish();
         });
         buttonDelCompte = (Button) findViewById(R.id.buttonDelCompte);
         buttonDelCompte.setOnClickListener(view -> {
@@ -142,6 +141,13 @@ public class SoireeAVenir extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        createAndLaunchASWSDecMembres();
+        finish();
     }
 
     @Override
