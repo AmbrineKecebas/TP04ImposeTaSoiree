@@ -16,7 +16,7 @@
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintTop_toBottomOf="@+id/tvTitreAjoutSoiree" />
 
     <EditText
         android:id="@+id/etDescription"
@@ -32,7 +32,7 @@
 
     <EditText
         android:id="@+id/etDate"
-        android:layout_width="263dp"
+        android:layout_width="264dp"
         android:layout_height="50dp"
         android:layout_marginTop="10dp"
         android:ems="10"
@@ -44,7 +44,7 @@
 
     <EditText
         android:id="@+id/etHeure"
-        android:layout_width="260dp"
+        android:layout_width="264dp"
         android:layout_height="50dp"
         android:layout_marginTop="10dp"
         android:ems="10"
@@ -56,8 +56,8 @@
 
     <EditText
         android:id="@+id/etLatitude"
-        android:layout_width="261dp"
-        android:layout_height="54dp"
+        android:layout_width="264dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:ems="10"
         android:hint="Latitude"
@@ -68,8 +68,8 @@
 
     <EditText
         android:id="@+id/etLongitude"
-        android:layout_width="260dp"
-        android:layout_height="58dp"
+        android:layout_width="264dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:ems="10"
         android:hint="Longitude"
@@ -81,18 +81,18 @@
     <Button
         android:id="@+id/buttonAddSoir"
         android:layout_width="347dp"
-        android:layout_height="48dp"
+        android:layout_height="47dp"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="246dp"
         android:text="Ajouter cette soirée"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintTop_toBottomOf="@+id/tvTitreAjoutSoiree" />
 
     <Button
-        android:id="@+id/buttonAnnuler2"
-        android:layout_width="350dp"
+        android:id="@+id/buttonAnnulerAjoutSoiree"
+        android:layout_width="347dp"
         android:layout_height="47dp"
         android:layout_marginTop="15dp"
         android:text="ANNULER"
@@ -101,7 +101,7 @@
         app:layout_constraintTop_toBottomOf="@+id/buttonAddSoir" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/tvTitreAjoutSoiree"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="14dp"

@@ -30,7 +30,7 @@
     <EditText
         android:id="@+id/etLogin"
         android:layout_width="342dp"
-        android:layout_height="48dp"
+        android:layout_height="53dp"
         android:layout_marginTop="60dp"
         android:ems="10"
         android:hint="Login"
@@ -41,7 +41,7 @@
 
     <EditText
         android:id="@+id/etPassword"
-        android:layout_width="340dp"
+        android:layout_width="342dp"
         android:layout_height="53dp"
         android:layout_marginTop="15dp"
         android:ems="10"
