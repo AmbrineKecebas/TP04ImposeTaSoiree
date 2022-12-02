@@ -60,7 +60,7 @@
         <EditText
             android:id="@+id/etPrenom"
             android:layout_width="281dp"
-            android:layout_height="46dp"
+            android:layout_height="48dp"
             android:layout_marginTop="28dp"
             android:ems="10"
             android:hint="Prénom"
@@ -118,7 +118,7 @@
         <EditText
             android:id="@+id/etMdp2"
             android:layout_width="282dp"
-            android:layout_height="47dp"
+            android:layout_height="48dp"
             android:layout_marginTop="28dp"
             android:ems="10"
             android:hint="Mot de passe 2"
