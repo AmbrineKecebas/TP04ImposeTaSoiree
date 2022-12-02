@@ -56,7 +56,7 @@ public class AjouterSoiree extends AppCompatActivity {
             DatePickerDialog datePicker = new DatePickerDialog(AjouterSoiree.this, new DatePickerDialog.OnDateSetListener() {
                 @Override
                 public void onDateSet(DatePicker datePicker, int annee, int mois, int jour) {
-                    etDate.setText(annee + "-" + mois+1 + "-" + jour);
+                    etDate.setText(annee + "-" + mois + 1 + "-" + jour);
                 }
             }, mYear, mMonth, mDay);
             datePicker.show();
@@ -70,8 +70,8 @@ public class AjouterSoiree extends AppCompatActivity {
         etHeure.setOnClickListener(view -> {
             TimePickerDialog timePicker = new TimePickerDialog(AjouterSoiree.this, new TimePickerDialog.OnTimeSetListener() {
                 @Override
-                public void onTimeSet(TimePicker timePicker, int h, int m){
-                    etHeure.setText(h + ":" + m );
+                public void onTimeSet(TimePicker timePicker, int h, int m) {
+                    etHeure.setText(h + ":" + m);
                 }
             }, heure, minute, true);
             timePicker.show();

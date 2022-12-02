@@ -25,8 +25,8 @@
 
         <TextView
             android:id="@+id/tvDetailSoiree"
-            android:layout_width="384dp"
-            android:layout_height="101dp"
+            android:layout_width="366dp"
+            android:layout_height="98dp"
             android:layout_marginStart="5dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="5dp"
