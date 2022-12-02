@@ -43,6 +43,7 @@ public class DetailSoiree extends AppCompatActivity {
         buttonRetour.setOnClickListener(view -> {
             Intent i = new Intent(this, SoireeAVenir.class);
             startActivity(i);
+
         });
         buttonSupSoiree = (Button) findViewById(R.id.buttonSupSoiree);
         buttonSupSoiree.setOnClickListener(view -> {

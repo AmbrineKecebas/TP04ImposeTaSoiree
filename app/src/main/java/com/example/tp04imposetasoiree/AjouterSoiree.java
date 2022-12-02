@@ -56,7 +56,7 @@ public class AjouterSoiree extends AppCompatActivity {
             DatePickerDialog datePicker = new DatePickerDialog(AjouterSoiree.this, new DatePickerDialog.OnDateSetListener() {
                 @Override
                 public void onDateSet(DatePicker datePicker, int annee, int mois, int jour) {
-                    etDate.setText(annee + "-" + mois + 1 + "-" + jour);
+                    etDate.setText(annee + "-" +( mois + 1)+ "-" + jour);
                 }
             }, mYear, mMonth, mDay);
             datePicker.show();
